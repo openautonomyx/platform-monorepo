@@ -1,0 +1,21 @@
+services:
+  calcom:
+    image: calcom/cal.com:latest
+    container_name: calcom
+    restart: unless-stopped
+    ports:
+      - "3350:3000"
+    environment:
+      DATABASE_URL: postgresql://calcom:calcom@shared_postgres:5432/calcom
+      NEXTAUTH_SECRET: calcom_nextauth_openautonomyx_2026
+      CALENDSO_ENCRYPTION_KEY: calcom_encryption_openautonomyx26
+      NEXT_AUTH_URL: https://cal.openautonomyx.com
+      WEBAPP_URL: https://cal.openautonomyx.com
+      NODE_ENV: production
+    networks:
+      - shared
+
+networks:
+  shared:
+    external: true
+    name: shared-infra_default

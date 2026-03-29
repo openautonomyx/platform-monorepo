@@ -1,0 +1,84 @@
+services:
+  novu-api:
+    image: ghcr.io/novuhq/novu/api:latest
+    container_name: novu_api
+    restart: unless-stopped
+    ports:
+      - "3340:3000"
+    environment:
+      NODE_ENV: production
+      API_ROOT_URL: https://notify.openautonomyx.com/api
+      FRONT_BASE_URL: https://notify.openautonomyx.com
+      MONGO_URL: mongodb://novu_mongo:27017/novu
+      REDIS_HOST: shared_redis
+      REDIS_PORT: 6379
+      REDIS_DB_INDEX: 3
+      JWT_SECRET: novu_jwt_openautonomyx_2026_secret
+      STORE_ENCRYPTION_KEY: novu_encryption_openautonomyx26
+    networks:
+      - shared
+      - novu
+
+  novu-web:
+    image: ghcr.io/novuhq/novu/web:latest
+    container_name: novu_web
+    restart: unless-stopped
+    ports:
+      - "3341:4200"
+    environment:
+      REACT_APP_API_URL: https://notify.openautonomyx.com/api
+      REACT_APP_WS_URL: https://notify.openautonomyx.com/ws
+    networks:
+      - novu
+
+  novu-worker:
+    image: ghcr.io/novuhq/novu/worker:latest
+    container_name: novu_worker
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      MONGO_URL: mongodb://novu_mongo:27017/novu
+      REDIS_HOST: shared_redis
+      REDIS_PORT: 6379
+      REDIS_DB_INDEX: 3
+      JWT_SECRET: novu_jwt_openautonomyx_2026_secret
+      STORE_ENCRYPTION_KEY: novu_encryption_openautonomyx26
+    networks:
+      - shared
+      - novu
+
+  novu-ws:
+    image: ghcr.io/novuhq/novu/ws:latest
+    container_name: novu_ws
+    restart: unless-stopped
+    ports:
+      - "3342:3002"
+    environment:
+      NODE_ENV: production
+      MONGO_URL: mongodb://novu_mongo:27017/novu
+      REDIS_HOST: shared_redis
+      REDIS_PORT: 6379
+      REDIS_DB_INDEX: 3
+      JWT_SECRET: novu_jwt_openautonomyx_2026_secret
+    networks:
+      - shared
+      - novu
+
+  novu-mongo:
+    image: mongo:7
+    container_name: novu_mongo
+    restart: unless-stopped
+    volumes:
+      - novu_mongo_data:/data/db
+    networks:
+      - novu
+
+networks:
+  shared:
+    external: true
+    name: shared-infra_default
+  novu:
+    driver: bridge
+
+volumes:
+  novu_mongo_data:

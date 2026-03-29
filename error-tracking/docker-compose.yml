@@ -1,0 +1,52 @@
+services:
+  glitchtip-web:
+    image: glitchtip/glitchtip:latest
+    container_name: glitchtip_web
+    restart: unless-stopped
+    ports:
+      - "4300:8080"
+    environment:
+      DATABASE_URL: postgresql://glitchtip:glitchtip@shared_postgres:5432/glitchtip
+      REDIS_URL: redis://shared_redis:6379/2
+      SECRET_KEY: glitchtip_secret_openautonomyx_2026
+      PORT: "8080"
+      DEFAULT_FROM_EMAIL: noreply@openautonomyx.com
+      GLITCHTIP_DOMAIN: https://sentry.openautonomyx.com
+      ENABLE_OPEN_USER_REGISTRATION: "true"
+      EMAIL_URL: "smtp+tls://noreply:Static%4012@mail.openautonomyx.com:5870"
+    networks:
+      - shared
+    depends_on:
+      - glitchtip-worker
+
+  glitchtip-worker:
+    image: glitchtip/glitchtip:latest
+    container_name: glitchtip_worker
+    restart: unless-stopped
+    command: ./bin/run-celery-with-beat.sh
+    environment:
+      DATABASE_URL: postgresql://glitchtip:glitchtip@shared_postgres:5432/glitchtip
+      REDIS_URL: redis://shared_redis:6379/2
+      SECRET_KEY: glitchtip_secret_openautonomyx_2026
+      DEFAULT_FROM_EMAIL: noreply@openautonomyx.com
+      GLITCHTIP_DOMAIN: https://sentry.openautonomyx.com
+      EMAIL_URL: "smtp+tls://noreply:Static%4012@mail.openautonomyx.com:5870"
+    networks:
+      - shared
+
+  glitchtip-migrate:
+    image: glitchtip/glitchtip:latest
+    container_name: glitchtip_migrate
+    restart: "no"
+    command: ./manage.py migrate
+    environment:
+      DATABASE_URL: postgresql://glitchtip:glitchtip@shared_postgres:5432/glitchtip
+      REDIS_URL: redis://shared_redis:6379/2
+      SECRET_KEY: glitchtip_secret_openautonomyx_2026
+    networks:
+      - shared
+
+networks:
+  shared:
+    external: true
+    name: shared-infra_default
