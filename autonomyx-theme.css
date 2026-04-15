@@ -1,0 +1,627 @@
+/*
+ * AutonomyX Enterprise Theme
+ * Inspired by: Gartner (authority, navy, structure) + IBM Carbon (productive, clean, systematic)
+ * Pure IBM style web app theme
+ */
+
+/* ═══════════════════════════════════════════════════════════════
+   CSS Custom Properties — Design Tokens (IBM Carbon influenced)
+   ═══════════════════════════════════════════════════════════════ */
+:root {
+  /* Primary palette — Gartner navy + IBM blue */
+  --ax-blue-100: #001d6c;
+  --ax-blue-90: #002d9c;
+  --ax-blue-80: #0043ce;
+  --ax-blue-70: #0053ff;
+  --ax-blue-60: #0f62fe;   /* IBM blue primary */
+  --ax-blue-50: #4589ff;
+  --ax-blue-40: #78a9ff;
+  --ax-blue-30: #a6c8ff;
+  --ax-blue-20: #d0e2ff;
+  --ax-blue-10: #edf5ff;
+
+  /* Navy — Gartner authority */
+  --ax-navy: #003057;
+  --ax-navy-dark: #001d3d;
+  --ax-navy-light: #004080;
+
+  /* Cool grays — IBM Carbon scale */
+  --ax-gray-100: #161616;
+  --ax-gray-90: #262626;
+  --ax-gray-80: #393939;
+  --ax-gray-70: #525252;
+  --ax-gray-60: #6f6f6f;
+  --ax-gray-50: #8d8d8d;
+  --ax-gray-40: #a8a8a8;
+  --ax-gray-30: #c6c6c6;
+  --ax-gray-20: #e0e0e0;
+  --ax-gray-10: #f4f4f4;
+
+  /* Semantic */
+  --ax-success: #198038;
+  --ax-warning: #f1c21b;
+  --ax-danger: #da1e28;
+  --ax-info: #0043ce;
+
+  /* Typography */
+  --ax-font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --ax-font-serif: 'IBM Plex Serif', Georgia, 'Times New Roman', serif;
+  --ax-font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+
+  /* Spacing — 8px grid (Carbon productive) */
+  --ax-spacing-01: 0.125rem;  /* 2px */
+  --ax-spacing-02: 0.25rem;   /* 4px */
+  --ax-spacing-03: 0.5rem;    /* 8px */
+  --ax-spacing-04: 0.75rem;   /* 12px */
+  --ax-spacing-05: 1rem;      /* 16px */
+  --ax-spacing-06: 1.5rem;    /* 24px */
+  --ax-spacing-07: 2rem;      /* 32px */
+  --ax-spacing-08: 2.5rem;    /* 40px */
+  --ax-spacing-09: 3rem;      /* 48px */
+
+  /* Shadows — subtle, structured */
+  --ax-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
+  --ax-shadow-md: 0 2px 6px rgba(0, 0, 0, 0.12);
+  --ax-shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.16);
+
+  /* Border radius — minimal (IBM Carbon uses 0-4px) */
+  --ax-radius-sm: 2px;
+  --ax-radius-md: 4px;
+  --ax-radius-lg: 8px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Google Fonts — IBM Plex family
+   ═══════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Serif:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* ═══════════════════════════════════════════════════════════════
+   Base Typography
+   ═══════════════════════════════════════════════════════════════ */
+body {
+  font-family: var(--ax-font-sans);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ax-gray-90);
+  background-color: var(--ax-gray-10);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ax-font-sans);
+  font-weight: 600;
+  color: var(--ax-gray-100);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+h1 { font-size: 2.625rem; font-weight: 300; letter-spacing: -0.02em; }
+h2 { font-size: 2rem; font-weight: 400; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1rem; font-weight: 600; }
+h6 { font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ax-gray-60); }
+
+p {
+  line-height: 1.625;
+  max-width: 72ch;
+}
+
+a {
+  color: var(--ax-blue-60);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--ax-blue-80);
+  text-decoration: underline;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Header / Top Navigation — Gartner dark navy bar
+   ═══════════════════════════════════════════════════════════════ */
+#banner,
+.control-menu-container,
+header.header {
+  background-color: var(--ax-navy-dark) !important;
+  border-bottom: 0;
+  box-shadow: var(--ax-shadow-md);
+}
+
+/* Navigation bar */
+.navbar,
+.portlet-header,
+.navigation-bar {
+  background-color: var(--ax-navy) !important;
+  color: white !important;
+}
+
+.navbar a,
+.navbar .nav-link,
+.navigation-bar a {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: var(--ax-spacing-03) var(--ax-spacing-05);
+  transition: all 0.15s ease;
+}
+
+.navbar a:hover,
+.navbar .nav-link:hover,
+.navigation-bar a:hover {
+  color: white !important;
+  background-color: rgba(255, 255, 255, 0.08);
+  text-decoration: none;
+}
+
+.navbar .active > a,
+.navbar .nav-link.active {
+  color: white !important;
+  border-bottom: 2px solid var(--ax-blue-60);
+}
+
+/* Logo area */
+.navbar-brand,
+.site-logo {
+  font-family: var(--ax-font-sans);
+  font-weight: 600;
+  font-size: 1.125rem;
+  letter-spacing: 0.04em;
+  color: white !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Content Area — Clean, structured grid
+   ═══════════════════════════════════════════════════════════════ */
+.portlet-layout {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--ax-spacing-07) var(--ax-spacing-06);
+}
+
+/* Portlet containers — Card-based layout (Carbon tiles) */
+.portlet-content,
+.portlet-body {
+  background: white;
+  border: 1px solid var(--ax-gray-20);
+  border-radius: var(--ax-radius-md);
+  padding: var(--ax-spacing-06);
+  margin-bottom: var(--ax-spacing-05);
+  box-shadow: var(--ax-shadow-sm);
+  transition: box-shadow 0.2s ease;
+}
+
+.portlet-content:hover {
+  box-shadow: var(--ax-shadow-md);
+}
+
+/* Portlet titles — Structured, understated */
+.portlet-title-default,
+.portlet-title {
+  font-family: var(--ax-font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ax-gray-60);
+  border-bottom: 1px solid var(--ax-gray-20);
+  padding-bottom: var(--ax-spacing-03);
+  margin-bottom: var(--ax-spacing-05);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Buttons — IBM Carbon button system
+   ═══════════════════════════════════════════════════════════════ */
+.btn,
+button,
+input[type="submit"],
+input[type="button"] {
+  font-family: var(--ax-font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 0.6875rem 1rem;
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  line-height: 1;
+}
+
+/* Primary button */
+.btn-primary,
+.btn-default {
+  background-color: var(--ax-blue-60) !important;
+  color: white !important;
+  border: none !important;
+}
+
+.btn-primary:hover,
+.btn-default:hover {
+  background-color: var(--ax-blue-80) !important;
+}
+
+.btn-primary:active,
+.btn-default:active {
+  background-color: var(--ax-blue-100) !important;
+}
+
+/* Secondary button */
+.btn-secondary,
+.btn-outline-primary {
+  background-color: transparent !important;
+  color: var(--ax-blue-60) !important;
+  border: 1px solid var(--ax-blue-60) !important;
+}
+
+.btn-secondary:hover,
+.btn-outline-primary:hover {
+  background-color: var(--ax-blue-10) !important;
+}
+
+/* Ghost button */
+.btn-link,
+.btn-unstyled {
+  background: none !important;
+  border: none !important;
+  color: var(--ax-blue-60) !important;
+  padding: var(--ax-spacing-03) var(--ax-spacing-05);
+}
+
+.btn-link:hover {
+  background-color: var(--ax-blue-10) !important;
+  text-decoration: none !important;
+}
+
+/* Danger button */
+.btn-danger {
+  background-color: var(--ax-danger) !important;
+  color: white !important;
+}
+
+.btn-danger:hover {
+  background-color: #a2191f !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Forms — Carbon-style inputs
+   ═══════════════════════════════════════════════════════════════ */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="url"],
+input[type="tel"],
+input[type="search"],
+textarea,
+select,
+.form-control {
+  font-family: var(--ax-font-sans);
+  font-size: 1rem;
+  padding: 0.6875rem 1rem;
+  border: none;
+  border-bottom: 1px solid var(--ax-gray-50);
+  border-radius: 0;
+  background-color: var(--ax-gray-10);
+  color: var(--ax-gray-100);
+  transition: all 0.15s ease;
+  outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+.form-control:focus {
+  border-bottom-color: var(--ax-blue-60);
+  box-shadow: inset 0 -2px 0 var(--ax-blue-60);
+  background-color: var(--ax-gray-10);
+  outline: none;
+}
+
+label,
+.control-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--ax-gray-70);
+  margin-bottom: var(--ax-spacing-02);
+  letter-spacing: 0.02em;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Tables — Data-dense, Gartner-style
+   ═══════════════════════════════════════════════════════════════ */
+table,
+.table {
+  font-size: 1rem;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ax-gray-70);
+  background-color: var(--ax-gray-10);
+  border-bottom: 2px solid var(--ax-gray-30);
+  padding: var(--ax-spacing-04) var(--ax-spacing-05);
+  text-align: left;
+}
+
+td {
+  padding: var(--ax-spacing-04) var(--ax-spacing-05);
+  border-bottom: 1px solid var(--ax-gray-20);
+  color: var(--ax-gray-90);
+}
+
+tr:hover td {
+  background-color: var(--ax-blue-10);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Footer — Minimal, structured
+   ═══════════════════════════════════════════════════════════════ */
+footer,
+.footer,
+#footer {
+  background-color: var(--ax-gray-100);
+  color: var(--ax-gray-40);
+  padding: var(--ax-spacing-07) var(--ax-spacing-06);
+  font-size: 0.75rem;
+  border-top: 1px solid var(--ax-gray-80);
+}
+
+footer a {
+  color: var(--ax-blue-40) !important;
+}
+
+footer a:hover {
+  color: var(--ax-blue-30) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Sidebar / Left Navigation — IBM Carbon shell style
+   ═══════════════════════════════════════════════════════════════ */
+.sidebar,
+.col-md-3,
+.portlet-column-only {
+  font-size: 1rem;
+}
+
+.nav-pills .nav-link,
+.list-group-item {
+  color: var(--ax-gray-80);
+  border-radius: 0;
+  border-left: 3px solid transparent;
+  padding: var(--ax-spacing-03) var(--ax-spacing-05);
+  transition: all 0.15s ease;
+}
+
+.nav-pills .nav-link:hover,
+.list-group-item:hover {
+  background-color: var(--ax-blue-10);
+  border-left-color: var(--ax-blue-60);
+  color: var(--ax-gray-100);
+}
+
+.nav-pills .nav-link.active,
+.list-group-item.active {
+  background-color: var(--ax-blue-20) !important;
+  border-left-color: var(--ax-blue-60);
+  color: var(--ax-blue-80) !important;
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Cards / Panels — Structured information tiles
+   ═══════════════════════════════════════════════════════════════ */
+.card,
+.panel {
+  background: white;
+  border: 1px solid var(--ax-gray-20);
+  border-radius: var(--ax-radius-md);
+  box-shadow: var(--ax-shadow-sm);
+  overflow: hidden;
+}
+
+.card-header,
+.panel-heading {
+  background-color: var(--ax-gray-10) !important;
+  border-bottom: 1px solid var(--ax-gray-20);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: var(--ax-spacing-04) var(--ax-spacing-05);
+  color: var(--ax-gray-80);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Alerts / Notifications — Carbon inline notifications
+   ═══════════════════════════════════════════════════════════════ */
+.alert {
+  border-radius: 0;
+  border: none;
+  border-left: 3px solid;
+  padding: var(--ax-spacing-05);
+  font-size: 1rem;
+}
+
+.alert-success { border-left-color: var(--ax-success); background-color: #defbe6; color: #044317; }
+.alert-warning { border-left-color: var(--ax-warning); background-color: #fdf6dd; color: #624700; }
+.alert-danger, .alert-error { border-left-color: var(--ax-danger); background-color: #fff1f1; color: #750e13; }
+.alert-info { border-left-color: var(--ax-info); background-color: var(--ax-blue-10); color: var(--ax-blue-100); }
+
+/* ═══════════════════════════════════════════════════════════════
+   Breadcrumbs — Minimal path indicator
+   ═══════════════════════════════════════════════════════════════ */
+.breadcrumb {
+  background: none;
+  padding: var(--ax-spacing-03) 0;
+  font-size: 0.75rem;
+  color: var(--ax-gray-50);
+}
+
+.breadcrumb a {
+  color: var(--ax-blue-60);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "/";
+  color: var(--ax-gray-30);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Search — Clean input with icon
+   ═══════════════════════════════════════════════════════════════ */
+.search-bar input,
+.portlet-search input[type="text"] {
+  background-color: var(--ax-gray-10);
+  border: none;
+  border-bottom: 2px solid var(--ax-gray-30);
+  padding: var(--ax-spacing-04) var(--ax-spacing-05);
+  font-size: 1rem;
+  width: 100%;
+}
+
+.search-bar input:focus {
+  border-bottom-color: var(--ax-blue-60);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Badge / Tags — Structured labels
+   ═══════════════════════════════════════════════════════════════ */
+.badge,
+.label,
+.tag {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  letter-spacing: 0.02em;
+}
+
+.badge-primary { background-color: var(--ax-blue-60); }
+.badge-secondary { background-color: var(--ax-gray-60); }
+.badge-success { background-color: var(--ax-success); }
+.badge-danger { background-color: var(--ax-danger); }
+
+/* ═══════════════════════════════════════════════════════════════
+   Loading / Progress — IBM Carbon inline loading
+   ═══════════════════════════════════════════════════════════════ */
+.progress-bar {
+  background-color: var(--ax-blue-60);
+  border-radius: 0;
+}
+
+.progress {
+  height: 4px;
+  border-radius: 0;
+  background-color: var(--ax-gray-20);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   User menu / Personal bar — Compact, professional
+   ═══════════════════════════════════════════════════════════════ */
+.user-personal-bar,
+.personal-menu-dropdown {
+  font-size: 0.8125rem;
+}
+
+.user-avatar-image {
+  border-radius: 50%;
+  border: 2px solid var(--ax-blue-40);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Dropdown menus — Structured, no rounded corners
+   ═══════════════════════════════════════════════════════════════ */
+.dropdown-menu {
+  border-radius: var(--ax-radius-sm);
+  border: 1px solid var(--ax-gray-20);
+  box-shadow: var(--ax-shadow-lg);
+  padding: var(--ax-spacing-02) 0;
+}
+
+.dropdown-item {
+  font-size: 1rem;
+  padding: var(--ax-spacing-03) var(--ax-spacing-05);
+  color: var(--ax-gray-80);
+}
+
+.dropdown-item:hover {
+  background-color: var(--ax-blue-10);
+  color: var(--ax-gray-100);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Modal / Dialog — Clean overlay
+   ═══════════════════════════════════════════════════════════════ */
+.modal-content {
+  border-radius: var(--ax-radius-md);
+  border: none;
+  box-shadow: var(--ax-shadow-lg);
+}
+
+.modal-header {
+  background-color: var(--ax-gray-10);
+  border-bottom: 1px solid var(--ax-gray-20);
+  padding: var(--ax-spacing-05) var(--ax-spacing-06);
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Utility: Hide default decorations
+   ═══════════════════════════════════════════════════════════════ */
+.portlet-topper {
+  display: none;
+}
+
+/* Show on hover for admin editing */
+.has-control-menu .portlet-topper {
+  display: block;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.has-control-menu .portlet:hover .portlet-topper {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Responsive — Mobile adjustments
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+
+  .portlet-layout {
+    padding: var(--ax-spacing-05) var(--ax-spacing-04);
+  }
+
+  .portlet-content,
+  .portlet-body {
+    padding: var(--ax-spacing-05);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Print — Clean print styles
+   ═══════════════════════════════════════════════════════════════ */
+@media print {
+  #banner, .control-menu-container, footer, .navbar {
+    display: none !important;
+  }
+  body {
+    font-size: 10pt;
+    color: black;
+    background: white;
+  }
+}
