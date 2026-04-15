@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://autonomyx.com/schemas/employee-agent-assignment.json",
+  "title": "EmployeeAgentAssignment",
+  "description": "Links employee to agent - supports one employee to many agents (Schema.org Association)",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "tenantId": { "type": "string", "format": "uuid" },
+    "employeeId": { "type": "string", "format": "uuid" },
+    "agentId": { "type": "string", "format": "uuid" },
+    "assignmentType": {
+      "type": "string",
+      "enum": ["primary", "secondary", "temporary"]
+    },
+    "isPrimary": { "type": "boolean" },
+    "accessLevel": {
+      "type": "string",
+      "enum": ["full", "limited", "restricted"]
+    },
+    "effectiveFrom": { "type": "string", "format": "date" },
+    "effectiveTo": { "type": "string", "format": "date" },
+    "role": { "type": "string" },
+    "numMembers": { "type": "integer" },
+    "status": {
+      "type": "string",
+      "enum": ["active", "revoked", "expired"]
+    },
+    "startDate": { "type": "string", "format": "date" },
+    "endDate": { "type": "string", "format": "date" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  },
+  "required": ["tenantId", "employeeId", "agentId"],
+  "additionalProperties": true
+}

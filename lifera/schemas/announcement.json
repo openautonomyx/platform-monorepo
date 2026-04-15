@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://autonomyx.com/schemas/announcement.json",
+  "title": "Announcement",
+  "description": "Published announcement (Schema.org Article)",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "tenantId": { "type": "string", "format": "uuid" },
+    "headline": { "type": "string" },
+    "articleBody": { "type": "string" },
+    "articleSection": { "type": "string" },
+    "wordCount": { "type": "integer" },
+    "datePublished": { "type": "string", "format": "date-time" },
+    "dateCreated": { "type": "string", "format": "date-time" },
+    "dateModified": { "type": "string", "format": "date-time" },
+    "author": {
+      "type": "object",
+      "properties": {
+        "type": { "type": "string" },
+        "id": { "type": "string" },
+        "name": { "type": "string" }
+      }
+    },
+    "publisher": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "logo": { "type": "string", "format": "uri" }
+      }
+    },
+    "channelId": { "type": "string", "format": "uuid" },
+    "channel": { "type": "string" },
+    "publishDate": { "type": "string", "format": "date" },
+    "expiryDate": { "type": "string", "format": "date" },
+    "priority": {
+      "type": "string",
+      "enum": ["normal", "high", "urgent"]
+    },
+    "image": { "type": "string", "format": "uri" },
+    "thumbnailUrl": { "type": "string", "format": "uri" },
+    "url": { "type": "string", "format": "uri" },
+    "sameAs": { "type": "string", "format": "uri" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  },
+  "required": ["tenantId", "headline", "articleBody"],
+  "additionalProperties": true
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://autonomyx.com/schemas/tenant.json",
+  "title": "Tenant",
+  "description": "A logical organization/tenant in AutonomyX",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "name": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "domain": { "type": "string", "format": "hostname", "unique": true },
+    "description": { "type": "string" },
+    "url": { "type": "string", "format": "uri" },
+    "logo": { "type": "string", "format": "uri" },
+    "status": {
+      "type": "string",
+      "enum": ["active", "suspended", "pending"]
+    },
+    "contactPoint": {
+      "type": "object",
+      "properties": {
+        "telephone": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "contactType": { "type": "string" }
+      }
+    },
+    "address": {
+      "type": "object",
+      "properties": {
+        "streetAddress": { "type": "string" },
+        "addressLocality": { "type": "string" },
+        "addressRegion": { "type": "string" },
+        "postalCode": { "type": "string" },
+        "addressCountry": { "type": "string" }
+      }
+    },
+    "areaServed": { "type": "string" },
+    "settings": { "type": "object" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  },
+  "required": ["name", "domain", "status"],
+  "additionalProperties": true
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://autonomyx.com/schemas/comment.json",
+  "title": "Comment",
+  "description": "Comment on content (Schema.org Comment)",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "tenantId": { "type": "string", "format": "uuid" },
+    "text": { "type": "string" },
+    "about": {
+      "type": "object",
+      "properties": {
+        "type": { "type": "string" },
+        "id": { "type": "string" },
+        "name": { "type": "string" }
+      }
+    },
+    "parentItem": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" }
+      }
+    },
+    "upvoteCount": { "type": "integer" },
+    "downvoteCount": { "type": "integer" },
+    "author": {
+      "type": "object",
+      "properties": {
+        "type": { "type": "string" },
+        "id": { "type": "string" },
+        "name": { "type": "string" }
+      }
+    },
+    "creator": { "type": "string" },
+    "dateCreated": { "type": "string", "format": "date-time" },
+    "dateModified": { "type": "string", "format": "date-time" },
+    "mentions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "replyToId": { "type": "string", "format": "uuid" },
+    "status": {
+      "type": "string",
+      "enum": ["active", "hidden", "flagged"]
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  },
+  "required": ["tenantId", "text", "author"],
+  "additionalProperties": true
+}

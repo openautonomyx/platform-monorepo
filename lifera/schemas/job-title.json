@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://autonomyx.com/schemas/job-title.json",
+  "title": "JobTitle",
+  "description": "Job title within a department",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "tenantId": { "type": "string", "format": "uuid" },
+    "title": { "type": "string", "minLength": 1 },
+    "code": { "type": "string" },
+    "departmentId": { "type": "string", "format": "uuid" },
+    "department": { "type": "string" },
+    "levelMin": { "type": "integer" },
+    "levelMax": { "type": "integer" },
+    "description": { "type": "string" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  },
+  "required": ["tenantId", "title", "departmentId"],
+  "additionalProperties": true
+}
