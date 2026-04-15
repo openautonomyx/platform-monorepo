@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <dynamic-element name="name" type="text" index-type="text" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Name</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="description" type="text_area" index-type="text" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Description</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="dueDate" type="date" index-type="date" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Due Date</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="parentType" type="select" index-type="keyword" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Parent Type</value></meta-data>
+        <meta-data index-key="optionLabels">
+            <value language-id="en_US">project|Project</value>
+            <value language-id="en_US">workflow|Workflow</value>
+        </meta-data>
+    </dynamic-element>
+    <dynamic-element name="parentId" type="text" index-type="text" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Parent ID</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="sequenceOrder" type="number" index-type="number" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Sequence Order</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="status" type="select" index-type="keyword" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Status</value></meta-data>
+        <meta-data index-key="optionLabels">
+            <value language-id="en_US">pending|Pending</value>
+            <value language-id="en_US">achieved|Achieved</value>
+            <value language-id="en_US">at_risk|At Risk</value>
+            <value language-id="en_US">missed|Missed</value>
+        </meta-data>
+    </dynamic-element>
+</root>

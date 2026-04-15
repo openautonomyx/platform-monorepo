@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <!-- Product - maps to Lifer -->
+    <dynamic-element name="description" type="text_area" index-type="text" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Description</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="ownerId" type="text" index-type="text" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Owner (User ID)</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="status" type="select" index-type="keyword" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Status</value></meta-data>
+        <meta-data index-key="optionLabels">
+            <value language-id="en_US">draft|Draft</value>
+            <value language-id="en_US">active|Active</value>
+            <value language-id="en_US">archived|Archived</value>
+            <value language-id="en_US">deprecated|Deprecated</value>
+        </meta-data>
+    </dynamic-element>
+</root>

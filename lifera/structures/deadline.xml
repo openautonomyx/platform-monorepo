@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <dynamic-element name="title" type="text" index-type="text" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Title</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="description" type="text_area" index-type="text" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Description</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="dueDate" type="date" index-type="date" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Due Date</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="parentType" type="select" index-type="keyword" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Parent Type</value></meta-data>
+        <meta-data index-key="optionLabels">
+            <value language-id="en_US">task|Task</value>
+            <value language-id="en_US">milestone|Milestone</value>
+            <value language-id="en_US">project|Project</value>
+        </meta-data>
+    </dynamic-element>
+    <dynamic-element name="parentId" type="text" index-type="text" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Parent ID</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="notifyEmployeeId" type="text" index-type="text" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Notify Employee</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="status" type="select" index-type="keyword" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Status</value></meta-data>
+        <meta-data index-key="optionLabels">
+            <value language-id="en_US">upcoming|Upcoming</value>
+            <value language-id="en_US">due|Due</value>
+            <value language-id="en_US">breached|Breached</value>
+            <value language-id="en_US">completed|Completed</value>
+            <value language-id="en_US">extended|Extended</value>
+        </meta-data>
+    </dynamic-element>
+</root>

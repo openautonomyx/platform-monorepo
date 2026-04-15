@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <!-- EXTENDS LIFERAY ORGANIZATION - add custom fields -->
+    <dynamic-element name="code" type="text" index-type="text" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Department Code</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="parentDepartmentId" type="text" index-type="text" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Parent Department</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="managerId" type="text" index-type="text" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Manager (User ID)</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="headcountTarget" type="number" index-type="number" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Headcount Target</value></meta-data>
+    </dynamic-element>
+</root>

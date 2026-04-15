@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <dynamic-element name="tenantName" type="text" index-type="text" repeat="false">
+        <meta-data index-key="label">
+            <value language-id="en_US">Tenant Name</value>
+        </meta-data>
+    </dynamic-element>
+    <dynamic-element name="domain" type="text" index-type="text" repeat="false">
+        <meta-data index-key="label">
+            <value language-id="en_US">Domain</value>
+        </meta-data>
+    </dynamic-element>
+    <dynamic-element name="status" type="select" index-type="keyword" repeat="false">
+        <meta-data index-key="label">
+            <value language-id="en_US">Status</value>
+        </meta-data>
+        <meta-data index-key="optionLabels">
+            <value language-id="en_US">Active|Active</value>
+            <value language-id="en_US">Suspended|Suspended</value>
+            <value language-id="en_US">Pending|Pending</value>
+        </meta-data>
+    </dynamic-element>
+</root>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <!-- Extends Lifer Web Content -->
+    <dynamic-element name="channelId" type="text" index-type="text" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Channel</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="publishDate" type="date" index-type="date" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Publish Date</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="expiryDate" type="date" index-type="date" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Expiry Date</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="priority" type="select" index-type="keyword" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Priority</value></meta-data>
+        <meta-data index-key="optionLabels">
+            <value language-id="en_US">normal|Normal</value>
+            <value language-id="en_US">high|High</value>
+            <value language-id="en_US">urgent|Urgent</value>
+        </meta-data>
+    </dynamic-element>
+</root>

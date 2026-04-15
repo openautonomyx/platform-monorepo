@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <!-- Extends Lifer Blog with custom fields -->
+    <dynamic-element name="category" type="select" index-type="keyword" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Category</value></meta-data>
+        <meta-data index-key="optionLabels">
+            <value language-id="en_US">product|Product</value>
+            <value language-id="en_US">feature|Feature</value>
+            <value language-id="en_US">process|Process</value>
+            <value language-id="en_US">other|Other</value>
+        </meta-data>
+    </dynamic-element>
+    <dynamic-element name="sentiment" type="select" index-type="keyword" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Sentiment</value></meta-data>
+        <meta-data index-key="optionLabels">
+            <value language-id="en_US">positive|Positive</value>
+            <value language-id="en_US">neutral|Neutral</value>
+            <value language-id="en_US">negative|Negative</value>
+        </meta-data>
+    </dynamic-element>
+    <dynamic-element name="linkedType" type="select" index-type="keyword" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Linked Type</value></meta-data>
+        <meta-data index-key="optionLabels">
+            <value language-id="en_US">product|Product</value>
+            <value language-id="en_US">project|Project</value>
+            <value language-id="en_US">channel|Channel</value>
+            <value language-id="en_US">platform|Platform</value>
+        </meta-data>
+    </dynamic-element>
+    <dynamic-element name="linkedId" type="text" index-type="text" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Linked ID</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="priority" type="select" index-type="keyword" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Priority</value></meta-data>
+        <meta-data index-key="optionLabels">
+            <value language-id="en_US">low|Low</value>
+            <value language-id="en_US">medium|Medium</value>
+            <value language-id="en_US">high|High</value>
+            <value language-id="en_US">critical|Critical</value>
+        </meta-data>
+    </dynamic-element>
+    <dynamic-element name="status" type="select" index-type="keyword" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Status</value></meta-data>
+        <meta-data index-key="optionLabels">
+            <value language-id="en_US">open|Open</value>
+            <value language-id="en_US">acknowledged|Acknowledged</value>
+            <value language-id="en_US">in_progress|In Progress</value>
+            <value language-id="en_US">resolved|Resolved</value>
+            <value language-id="en_US">closed|Closed</value>
+        </meta-data>
+    </dynamic-element>
+</root>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <!-- EXTENDS LIFERAY SITE - custom fields -->
+    <dynamic-element name="type" type="select" index-type="keyword" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Group Type</value></meta-data>
+        <meta-data index-key="optionLabels">
+            <value language-id="en_US">team|Team</value>
+            <value language-id="en_US">project|Project</value>
+            <value language-id="en_US">department|Department</value>
+            <value language-id="en_US">company|Company</value>
+            <value language-id="en_US">external|External</value>
+        </meta-data>
+    </dynamic-element>
+    <dynamic-element name="privacy" type="select" index-type="keyword" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Privacy</value></meta-data>
+        <meta-data index-key="optionLabels">
+            <value language-id="en_US">public|Public</value>
+            <value language-id="en_US">private|Private</value>
+            <value language-id="en_US">internal|Internal</value>
+        </meta-data>
+    </dynamic-element>
+    <dynamic-element name="ownerId" type="text" index-type="text" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Owner (User ID)</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="parentGroupId" type="text" index-type="text" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Parent Group</value></meta-data>
+    </dynamic-element>
+</root>

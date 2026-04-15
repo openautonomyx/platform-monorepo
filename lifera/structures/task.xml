@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <dynamic-element name="title" type="text" index-type="text" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Title</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="description" type="text_area" index-type="text" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Description</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="status" type="select" index-type="keyword" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Status</value></meta-data>
+        <meta-data index-key="optionLabels">
+            <value language-id="en_US">pending|Pending</value>
+            <value language-id="en_US">in_progress|In Progress</value>
+            <value language-id="en_US">blocked|Blocked</value>
+            <value language-id="en_US">completed|Completed</value>
+            <value language-id="en_US">cancelled|Cancelled</value>
+        </meta-data>
+    </dynamic-element>
+    <dynamic-element name="priority" type="select" index-type="keyword" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Priority</value></meta-data>
+        <meta-data index-key="optionLabels">
+            <value language-id="en_US">low|Low</value>
+            <value language-id="en_US">medium|Medium</value>
+            <value language-id="en_US">high|High</value>
+            <value language-id="en_US">urgent|Urgent</value>
+        </meta-data>
+    </dynamic-element>
+    <dynamic-element name="taskType" type="select" index-type="keyword" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Task Type</value></meta-data>
+        <meta-data index-key="optionLabels">
+            <value language-id="en_US">action|Action</value>
+            <value language-id="en_US">review|Review</value>
+            <value language-id="en_US">approval|Approval</value>
+            <value language-id="en_US">decision|Decision</value>
+        </meta-data>
+    </dynamic-element>
+    <dynamic-element name="parentType" type="select" index-type="keyword" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Parent Type</value></meta-data>
+        <meta-data index-key="optionLabels">
+            <value language-id="en_US">project|Project</value>
+            <value language-id="en_US">group|Group</value>
+            <value language-id="en_US">task|Task</value>
+        </meta-data>
+    </dynamic-element>
+    <dynamic-element name="parentId" type="text" index-type="text" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Parent ID</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="assigneeId" type="text" index-type="text" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Assignee (User ID)</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="assigneeAgentId" type="text" index-type="text" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Assignee Agent ID</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="dueDate" type="date" index-type="date" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Due Date</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="estimatedHours" type="number" index-type="number" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Estimated Hours</value></meta-data>
+    </dynamic-element>
+    <dynamic-element name="actualHours" type="number" index-type="number" repeat="false">
+        <meta-data index-key="label"><value language-id="en_US">Actual Hours</value></meta-data>
+    </dynamic-element>
+</root>
